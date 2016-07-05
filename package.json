@@ -1,0 +1,23 @@
+{
+  "name": "esri-in-angular",
+  "version": "1.0.0",
+  "description": "Testing app to incorporate ESRI in Angular",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gisbing/ESRIinAngular.git"
+  },
+  "keywords": [
+    "ESRI",
+    "angular"
+  ],
+  "author": "Bing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gisbing/ESRIinAngular/issues"
+  },
+  "homepage": "https://github.com/gisbing/ESRIinAngular#readme"
+}
