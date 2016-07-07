@@ -2,7 +2,6 @@
   "name": "esri-in-angular",
   "version": "1.0.0",
   "description": "Testing app to incorporate ESRI in Angular",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

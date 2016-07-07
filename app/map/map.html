@@ -1,0 +1,20 @@
+<div ng-controller="mapController as vm" xmlns="http://www.w3.org/1999/html">
+    <div class="col-sm-9 col-sm-push-3 col-xs-12" style="height: 600px">
+        <esri-map-view map="vm.map"  on-create="vm.onViewCreated" view-options="{zoom: 10,
+        center: [-77, 39]}">
+
+        </esri-map-view>
+    </div>
+    <div class="col-sm-3 col-sm-pull-9">
+        <h4>Layers</h4>
+        <li>
+            <li><strong>Rotation:</strong> <input type="number" ng-model="vm.mapView.rotation" /></li>
+            <li><strong>zoom:</strong> <input type="number" ng-model="vm.mapView.zoom" /></li>
+            <li>base map:<input type="text" ng-model="vm.basemap" /> <button ng-click="vm.switchBasemap('gray')">Change</button></li>
+        </ul>
+    </div>
+
+
+
+
+</div>

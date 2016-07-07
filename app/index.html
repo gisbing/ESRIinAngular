@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>Angular Esri Quick Start</title>
+
+    <!-- load calcite-bootstrap css -->
+    <link href="//esri.github.io/calcite-bootstrap/assets/css/calcite-bootstrap-open.min.css" rel="stylesheet">
+
+    <!-- load Esri CSS -->
+    <link rel="stylesheet" href="//js.arcgis.com/4.0/esri/css/main.css">
+
+    <!-- load custom styles for this app -->
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
+    <style type="text/css">
+        html, body, .esri-view {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--<esri-scene-view map="vm.map" view-options="{scale: 50000000, center: [-101.17, 21.78]}">
+</esri-scene-view>-->
+
+
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" ng-href="#/home">Home</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li ng-class="{active: page === 'examples'}">
+                <a ng-href="#/map">Map</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div ng-view></div>
+</div>
+
+<!-- load Esri JavaScript API -->
+<!-- NOTE: defer is only needed b/c of UMD blocks in highlight.min.js -->
+<script defer type="text/javascript" src="//js.arcgis.com/4.0/"></script>
+
+<!-- load Angular -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+
+<!-- load angular-esri-map -->
+<script src="//npmcdn.com/angular-esri-map@2"></script>
+
+<!-- load this app -->
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="appConfig.js"></script>
+<script type="text/javascript" src="home/homeController.js"></script>
+<script type="text/javascript" src="map/mapController.js"></script>
+<!--<script type="text/javascript">
+    angular.module('esri-map-example', ['esri.map'])
+            .controller('MapController', function(esriLoader) {
+                var self = this;
+                esriLoader.require(['esri/Map'], function(Map) {
+                    self.map = new Map({
+                        basemap: 'streets'
+                    });
+                });
+            });
+</script>-->
+</body>
+</html>
