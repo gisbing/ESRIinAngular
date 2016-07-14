@@ -1,18 +1,24 @@
 (function (angular) {
     angular.module('app')
-        .controller('mapImageLayerController', ['esriLoader', function mapImageLayerController(esriLoader) {
+        .controller('mapImageLayerController', ['esriLoader', 'configMap', function mapImageLayerController(esriLoader, configMap) {
             var vm = this;
 
             esriLoader.require([
                 'esri/layers/MapImageLayer'
             ], function (MapImageLayer) {
-                vm.addLayer = function (map){
+                vm.addLayer = function (map, layerId){
+                    angular.forEach(configMap.mapLayers, function (val){
+                        if (val.mapid === layerId){
+                            var mapLayer = new MapImageLayer({
+                                url: val.url,
+                                outFields: ['*']
+                            });
+                            mapLayer.visible = val.visible || true;
+                            mapLayer.opacity = val.opacity || 1;
+                            map.add(mapLayer);
+                        }
+                    })
 
-                    var mapLayer = new MapImageLayer({
-                        url: 'http://10.90.6.100:6080/arcgis/rest/services/WMATA/SDE_Facilities/MapServer',
-                        outFields: ['*']
-                    });
-                    map.add(mapLayer);
                 }
             });
         }]);
@@ -38,7 +44,7 @@
                         if (newVal === undefined){
                             return;
                         }
-                        controller.addLayer(newVal);
+                        controller.addLayer(newVal, attrs.layerid);
                     });
                 }
             }

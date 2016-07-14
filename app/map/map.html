@@ -2,7 +2,7 @@
     <div class="col-sm-9 col-sm-push-3 col-xs-12" style="height: 600px">
         <esri-map-view map="vm.map"  on-create="vm.onViewCreated" view-options="{zoom: 10,
         center: [-77, 39]}" on-error="vm.onViewError">
-            <map-image-layer map="vm.map"></map-image-layer>
+            <map-image-layer layerid="facilities" map="vm.map"></map-image-layer>
         </esri-map-view>
     </div>
     <div class="col-sm-3 col-sm-pull-9">
