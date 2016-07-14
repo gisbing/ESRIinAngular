@@ -48,6 +48,9 @@ angular.module('app').controller('mapController', function ($scope, esriLoader) 
             });
 
         };
+        vm.onViewError = function(){
+            console.log('here');
+        }
 
         var template = new PopupTemplate({
             title: 'Marriage in NY, Zip Code: {ZIP}',
@@ -82,10 +85,10 @@ angular.module('app').controller('mapController', function ($scope, esriLoader) 
             popupTemplate: template
         });
 
-        vm.map.add(featureLayer);
+        //vm.map.add(featureLayer);
 
         vm.switchBasemap = function (bname){
-            vm.map.basemap = bname;
+            vm.map.basemap = vm.basemap;
 
         }
     });
