@@ -1,13 +1,20 @@
-<div ng-controller="mapController as vm" xmlns="http://www.w3.org/1999/html">
-    <div class="col-sm-9 col-sm-push-3 col-xs-12" style="height: 600px">
+<div>
+    <div class="col-sm-9 col-sm-push-3 col-xs-12" style="height: 600px" ng-controller="mapController as vm">
         <esri-map-view map="vm.map"  on-create="vm.onViewCreated" view-options="{zoom: 10,
-        center: [-77, 39]}" on-error="vm.onViewError">
+        center: [-77, 39]}" on-error="vm.onViewError" register-as="{{vm.mapRegId}}">
             <map-image-layer layerid="facilities" map="vm.map"></map-image-layer>
         </esri-map-view>
     </div>
     <div class="col-sm-3 col-sm-pull-9">
-        <h4>Layers</h4>
-        <li>
+
+        <div ng-controller="tocController as tocCtrl">
+            <h4>Layers</h4>
+            <div ng-repeat="lyr in tocCtrl.layers">
+                <layer-properties layer-id="{{lyr.mapid}}"></layer-properties>
+            </div>
+
+        </div>
+        <ul>
             <li><strong>Rotation:</strong> <input type="number" ng-model="vm.mapView.rotation" /></li>
             <li><strong>zoom:</strong> <input type="number" ng-model="vm.mapView.zoom" /></li>
             <li>base map:<input type="text" ng-model="vm.basemap" /> <button ng-click="vm.switchBasemap('gray')">Change</button></li>

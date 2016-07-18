@@ -1,5 +1,5 @@
 (function (angular) {
-    angular.module('app')
+    angular.module('wmataapp')
         .controller('mapImageLayerController', ['esriLoader', 'configMap', function mapImageLayerController(esriLoader, configMap) {
             var vm = this;
 
@@ -11,10 +11,10 @@
                         if (val.mapid === layerId){
                             var mapLayer = new MapImageLayer({
                                 url: val.url,
-                                outFields: ['*']
+                                id: layerId,
+                                visible: val.visible,
+                                opacity: val.opacity
                             });
-                            mapLayer.visible = val.visible || true;
-                            mapLayer.opacity = val.opacity || 1;
                             map.add(mapLayer);
                         }
                     })
@@ -27,12 +27,13 @@
 })(angular);
 
 (function (angular) {
-    angular.module('app')
+    angular.module('wmataapp')
         .directive('mapImageLayer', function mapImageLayer() {
             return {
                 restrict: 'E',
                 transclude: true,
                 scope: {
+                    //two-way binding
                     map: '=?'
 
                 },

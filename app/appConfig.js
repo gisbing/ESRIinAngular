@@ -4,7 +4,7 @@
     var config = {
         routes: []
     };
-    angular.module('app')
+    angular.module('wmataapp')
         .constant('appConfig', config);
 
 })(angular);

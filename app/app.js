@@ -1,7 +1,7 @@
 (function (angular) {
     'use strict';
 
-    angular.module('app', ['ngRoute', 'esri.map'])
+    angular.module('wmataapp', ['ngRoute', 'esri.map'])
         .config(function ($routeProvider, appConfig) {
             $routeProvider
                 .when('/home', {

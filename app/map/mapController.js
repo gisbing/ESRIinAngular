@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app').controller('mapController', function ($scope, esriLoader) {
+angular.module('wmataapp').controller('mapController', function ($scope, esriLoader, configMap) {
     var vm = this;
 
     esriLoader.require([
@@ -21,6 +21,8 @@ angular.module('app').controller('mapController', function ($scope, esriLoader) 
             },
             zoom: 9
         };
+
+        vm.mapRegId = configMap.mapRegId;
         vm.map = new Map({
             basemap: 'streets'
         });
