@@ -3,6 +3,7 @@
         <esri-map-view map="vm.map"  on-create="vm.onViewCreated" view-options="{zoom: 10,
         center: [-77, 39]}" on-error="vm.onViewError" register-as="{{vm.mapRegId}}">
             <map-image-layer layerid="facilities" map="vm.map"></map-image-layer>
+            <map-image-layer layerid="boundary" map="vm.map"></map-image-layer>
         </esri-map-view>
     </div>
     <div class="col-sm-3 col-sm-pull-9">
@@ -13,10 +14,40 @@
                 <layer-properties layer-id="{{lyr.mapid}}"></layer-properties>
             </div>
 
+
+            <div ng-repeat="lyr in tocCtrl.layers">
+                <uib-accordion close-others="false">
+                    <!-- Outer Group #1 -->
+                    <uib-accordion-group heading="{{lyr.mapid}}" ng-init="status.isOuterGroup1Open = false"
+                                     is-open="status.isOuterGroup1Open">
+                        <layer-properties layer-id="{{lyr.mapid}}"></layer-properties>
+                        <!--<div ng-repeat="sublayer in lyr.sublayers">
+                            &lt;!&ndash;<layer-properties layer-id="{{sublayer.mapid}}"></layer-properties>&ndash;&gt;
+                            <layer-properties layer-id="{{sublayer.mapid}}"></layer-properties>
+                        </div>-->
+                    </uib-accordion-group>
+
+                    <!-- Outer Group #2 -->
+                    <!--<uib-accordion-group heading="Outer Group #2" ng-init="status.isOuterGroup2Open = true"
+                                     is-open="status.isOuterGroup2Open">
+                        <accordian close-others="true">
+                            &lt;!&ndash; Inner Groups &ndash;&gt;
+                            <uib-accordion-group data-ng-repeat="outerItem in tocCtrl.outerItems"
+                                             heading="{{outerItem.name}}">
+                                <div data-ng-repeat="innerItem in outerItem.children">
+                                    &lt;!&ndash; Inner content here &ndash;&gt;
+                                    {{innerItem.name}}
+                                </div>
+                            </uib-accordion-group>
+                        </accordian>
+                    </uib-accordion-group>-->
+                </uib-accordion>
+
+            </div>
         </div>
         <ul>
-            <li><strong>Rotation:</strong> <input type="number" ng-model="vm.mapView.rotation" /></li>
-            <li><strong>zoom:</strong> <input type="number" ng-model="vm.mapView.zoom" /></li>
+            <!--<li><strong>Rotation:</strong> <input type="number" ng-model="vm.mapView.rotation" /></li>
+            <li><strong>zoom:</strong> <input type="number" ng-model="vm.mapView.zoom" /></li>-->
             <li>base map:<input type="text" ng-model="vm.basemap" /> <button ng-click="vm.switchBasemap('gray')">Change</button></li>
             <div class="dropdown-menu"></div>
         </ul>

@@ -165,3 +165,9 @@ button.btn-default:active, button.btn-default[disabled]:active {
     background-color: #b52e31!important;
     border-color: #b52e31 !important;
 }
+
+
+/*styles that Bing added*/
+.panel-group {
+    margin-bottom: 2px;
+}

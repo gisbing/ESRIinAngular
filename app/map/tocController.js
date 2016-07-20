@@ -10,6 +10,11 @@ angular.module('wmataapp').controller('tocController', function ($scope, esriLoa
 
     vm.layers = configMap.mapLayers;
 
+    vm.outerItems = [
+        {name: 'apple', children: []},
+        {name: 'rasberry', children: [{name: 'red'}]}
+    ];
+
     esriLoader.require([
         'esri/Map',
         'esri/widgets/Search',
